@@ -1,1 +1,1 @@
-# GameTwo.github.io
+# GameTwo
