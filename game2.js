@@ -116,16 +116,26 @@ function update(){
     });
     gameState.lowest = sortedEnemies("y")[0];
     gameState.highest = sortedEnemies("y")[sortedEnemies("y").length-1];
+    gameState.rightMost = sortedEnemies("x")[sortedEnemies("x").length-1];
 
     if (gameState.lowest.y < 10 || gameState.highest.y > 390){
       gameState.enemyVelocity *= -1;
       gameState.enemies.getChildren().forEach((enemy)=>{
         enemy.x -= 10;
-      });
+    });
+   }
+
+   gameState.rightMost = sortedEnemies("x")[sortedEnemies("x").length-1];
+   if (gameState.rightMost.x === 450){
+     if (gameState.lowest.y === 50){
+     for (let yCoord = 1; yCoord < 8; yCoord++){
+       gameState.enemies.create(500,yCoord*50,"gegner").setScale(.03).setGravityX(200);
+     }
     }
-
-
+   }
+   
   }
+
 }
 
 
